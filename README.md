@@ -13,7 +13,10 @@ with a PAL controller.
 
 ## Hardware
 
-![The prototype board](imgs/prototype-board.jpeg)
+<p float='left'>
+  <img src='imgs/prototype-front.jpeg' alt='Prototype board front' width='49%'>
+  <img src='imgs/prototype-top.jpeg' alt='Prototype board top' width='49%'>
+</p>
 
 I used an [Arduino Pro Micro][4] clone, but any ATmega32U4-based board should
 work, e.g. an Arduino Leonardo.  You can modify the pin assignments in
