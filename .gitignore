@@ -1,5 +1,6 @@
 ### Development ###
 ._*
+.DS_Store
 
 ### C ###
 # Prerequisites
