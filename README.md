@@ -34,3 +34,22 @@ reset pin and ground.
 [4]: https://www.sparkfun.com/products/12640
 [5]: sketches/main/hardware.h
 [6]: sketches/main/main.ino
+
+## Software
+
+As of current version, the adapter maps the controller buttons as follows:
+
+| SNES button | Keyboard key |
+| ----------- | ------------ |
+| L           | l            |
+| R           | r            |
+| Joypad Up   | Up arrow     |
+| X           | x            |
+| Joypad left | Left arrow   |
+| Joypad right| Right arrow  |
+| Select      | Right shift  |
+| Start       | Enter        |
+| Y           | y            |
+| A           | a            |
+| Joypad down | Down arrow   |
+| B           | b            |
