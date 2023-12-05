@@ -62,6 +62,8 @@ void setup() {
   pinMode(DATA_PIN, INPUT);
   pinMode(LATCH_PIN, OUTPUT);
   L(LATCH_PIN);
+  pinMode(LED_PIN, OUTPUT);
+  H(LED_PIN);
   pinMode(LOCK_PIN, INPUT_PULLUP);
 
   // State is 1 when button is not pressed, 0 when pressed.
@@ -176,11 +178,14 @@ void loop() {
     Keyboard.releaseAll();
 
     while (R(LOCK_PIN) == HIGH) {
+      // If serial led is blinking, it means the lock is engaged.
+      delay(500); // Don't spam the serial port.
       if (DEBUG) {
         Serial.println("Lock engaged");
-        // If serial led is blinking, it means the lock is engaged.
-        delay(1000); // Don't spam the serial port
       }
+      L(LED_PIN);
+      delay(500);
+      H(LED_PIN);
     }
   }
 

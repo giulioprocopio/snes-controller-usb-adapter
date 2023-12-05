@@ -4,6 +4,7 @@
 #define CLOCK_PIN 9
 #define DATA_PIN 7
 #define LATCH_PIN 8
+#define LED_PIN 3
 #define LOCK_PIN 2
 
 #endif
