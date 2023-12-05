@@ -39,17 +39,20 @@ reset pin and ground.
 
 As of current version, the adapter maps the controller buttons as follows:
 
-| SNES button | Keyboard key |
-| ----------- | ------------ |
-| L           | l            |
-| R           | r            |
-| Joypad Up   | Up arrow     |
-| X           | x            |
-| Joypad left | Left arrow   |
-| Joypad right| Right arrow  |
-| Select      | Right shift  |
-| Start       | Enter        |
-| Y           | y            |
-| A           | a            |
-| Joypad down | Down arrow   |
-| B           | b            |
+| SNES button  | Keyboard key |
+| ------------ | ------------ |
+| L            | l            |
+| R            | r            |
+| Joypad Up    | Up arrow     |
+| X            | x            |
+| Joypad left  | Left arrow   |
+| Joypad right | Right arrow  |
+| Select       | Right shift  |
+| Start        | Enter        |
+| Y            | y            |
+| A            | a            |
+| Joypad down  | Down arrow   |
+| B            | b            |
+
+The led connected to pin 3 will be lit when the board is powered and will
+blink when the controller is locked.
