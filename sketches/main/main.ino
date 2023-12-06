@@ -179,23 +179,40 @@ void write_state(void) {
   rep_state = state;
 }
 
-void loop() {
-  if (R(LOCK_PIN) == HIGH) {
-    // Lock is engaged, unpress all keys and do nothing.
-
-    Keyboard.releaseAll();
-
-    while (R(LOCK_PIN) == HIGH) {
-      // If the led is blinking at 2Hz, it means the lock is engaged.
-      if (DEBUG) {
-        Serial.println("Lock engaged");
-      }
-      // Do not spam the serial port thanks to the delay.
-      B50(LED_PIN, 500);
-    }
+// Macro construct to unpress all keys and do nothing until the condition is
+// false.
+#define BLOCK(macro)                                                           \
+  if ((macro)) {                                                               \
+    Keyboard.releaseAll();                                                     \
+    rep_state = 0xFFFF;                                                        \
+    while ((macro)) {
+#define KCOLB                                                                  \
+  }                                                                            \
   }
 
+#define IS_LOCKED (R(LOCK_PIN) == HIGH)
+#define IS_CONNECTED (state != 0)
+
+void loop() {
+  BLOCK(IS_LOCKED)
+  // Lock is engaged, unpress all keys and do nothing.  Blink at 2Hz.
+  if (DEBUG) {
+    Serial.println("Lock engaged");
+  }
+  B50(LED_PIN, 500);
+  KCOLB
+
   read_state();
+
+  BLOCK(!IS_CONNECTED)
+  // Controller is not connected.  Blink at 1Hz.
+  read_state();
+  if (DEBUG) {
+    Serial.println("Controller not connected");
+  }
+  B50(LED_PIN, 1000);
+  KCOLB
+
   if (DEBUG) {
     debug_state();
   }
