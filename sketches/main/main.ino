@@ -196,7 +196,7 @@ void write_state(void) {
 
 void loop() {
   BLOCK(IS_LOCKED)
-  // Lock is engaged, unpress all keys and do nothing.  Blink at 2Hz.
+  // Lock is engaged, unpress all keys and do nothing.  Blink at 2 Hz.
   if (DEBUG) {
     Serial.println("Lock engaged");
   }
@@ -206,7 +206,7 @@ void loop() {
   read_state();
 
   BLOCK(!IS_CONNECTED)
-  // Controller is not connected.  Blink at 1Hz.
+  // Controller is not connected.  Blink at 1 Hz.
   read_state();
   if (DEBUG) {
     Serial.println("Controller not connected");

@@ -54,5 +54,11 @@ As of current version, the adapter maps the controller buttons as follows:
 | Joypad down  | Down arrow   |
 | B            | b            |
 
-The led connected to pin 3 will be lit when the board is powered and will
-blink at 2Hz when the controller is locked.
+The led state has the following meaning:
+
+| Led state | Meaning                  |
+| --------- | ------------------------ |
+| Off       | No power                 |
+| On        | Power                    |
+| 1 Hz      | Locked                   |
+| 2 Hz      | Controller not connected |
