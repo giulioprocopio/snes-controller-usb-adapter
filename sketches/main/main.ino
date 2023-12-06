@@ -7,8 +7,16 @@
 
 #include "hardware.h"
 
-#define H(pin) digitalWrite(pin, HIGH)
-#define L(pin) digitalWrite(pin, LOW)
+#define H(pin) digitalWrite((pin), HIGH)
+#define L(pin) digitalWrite((pin), LOW)
+#define B(pin, period, duty)                                                   \
+  do {                                                                         \
+    H(pin);                                                                    \
+    delay((period) * (duty));                                                  \
+    L(pin);                                                                    \
+    delay((period) * (1 - (duty)));                                            \
+  } while (0)
+#define B50(pin, period) B(pin, period, 0.5)
 #define R(pin) digitalRead(pin)
 
 uint16_t state, rep_state;
@@ -178,14 +186,12 @@ void loop() {
     Keyboard.releaseAll();
 
     while (R(LOCK_PIN) == HIGH) {
-      // If serial led is blinking, it means the lock is engaged.
-      delay(500); // Don't spam the serial port.
+      // If the led is blinking at 2Hz, it means the lock is engaged.
       if (DEBUG) {
         Serial.println("Lock engaged");
       }
-      L(LED_PIN);
-      delay(500);
-      H(LED_PIN);
+      // Do not spam the serial port thanks to the delay.
+      B50(LED_PIN, 500);
     }
   }
 

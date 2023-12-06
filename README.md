@@ -55,4 +55,4 @@ As of current version, the adapter maps the controller buttons as follows:
 | B            | b            |
 
 The led connected to pin 3 will be lit when the board is powered and will
-blink when the controller is locked.
+blink at 2Hz when the controller is locked.
