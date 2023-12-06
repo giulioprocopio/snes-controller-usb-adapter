@@ -9,11 +9,12 @@
 
 #define H(pin) digitalWrite((pin), HIGH)
 #define L(pin) digitalWrite((pin), LOW)
+#define T(pin) digitalWrite((pin), !digitalRead((pin)))
 #define B(pin, period, duty)                                                   \
   do {                                                                         \
-    H(pin);                                                                    \
+    T(pin);                                                                    \
     delay((period) * (duty));                                                  \
-    L(pin);                                                                    \
+    T(pin);                                                                    \
     delay((period) * (1 - (duty)));                                            \
   } while (0)
 #define B50(pin, period) B(pin, period, 0.5)
