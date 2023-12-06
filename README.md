@@ -37,6 +37,8 @@ reset pin and ground.
 
 ## Software
 
+### Button -> Keyboard mapping
+
 As of current version, the adapter maps the controller buttons as follows:
 
 | SNES button  | Keyboard key |
@@ -54,11 +56,19 @@ As of current version, the adapter maps the controller buttons as follows:
 | Joypad down  | Down arrow   |
 | B            | b            |
 
-The led state has the following meaning:
+### LED feedback
 
-| Led state | Meaning                  |
+| LED state | Meaning                  |
 | --------- | ------------------------ |
 | Off       | No power                 |
 | On        | Power                    |
-| 1 Hz      | Locked                   |
+| 1 Hz      | Locked (internal switch) |
 | 2 Hz      | Controller not connected |
+
+### Compiling and flashing
+
+You can use the Arduino IDE to compile and flash the adapter.  You will probably
+need to upload the sketch as on Arduino Leonardo.  Also, if having trouble
+flashing the board, be aware of [this issue][7].
+
+[7]: https://forum.arduino.cc/t/arduino-pro-micro-not-recognized/698335
