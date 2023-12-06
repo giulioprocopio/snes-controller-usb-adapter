@@ -192,6 +192,9 @@ void write_state(void) {
   }
 
 #define IS_LOCKED (R(LOCK_PIN) == HIGH)
+// This relies on the fact that even if the controller is connected and all
+// buttons are pressed, the state will be 0xF000, because those four bits in the
+// controller registers are not button-related and are always 1.
 #define IS_CONNECTED (state != 0)
 
 void loop() {
