@@ -62,8 +62,8 @@ As of current version, the adapter maps the controller buttons as follows:
 | --------- | ------------------------ |
 | Off       | No power                 |
 | On        | Power                    |
-| 1 Hz      | Locked (internal switch) |
-| 2 Hz      | Controller not connected |
+| 1 Hz      | Controller not connected |
+| 2 Hz      | Locked (internal switch) |
 
 ### Compiling and flashing
 
