@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 
-#define DEBUG 1 // Set to 1 to enable debug serial output
+#define DEBUG 1 // Set to 1 to enable debug serial output.
 
 #include "hardware.h"
 
@@ -23,7 +23,7 @@
 uint16_t state, rep_state;
 
 enum Button {
-  // Order: left to right, top to bottom
+  // Order: left to right, top to bottom.
   BTN_L = 0,
   BTN_R,
   BTN_UP,
@@ -36,13 +36,13 @@ enum Button {
   BTN_A,
   BTN_DOWN,
   BTN_B,
-  BTN_NC // Not connected
+  BTN_NC // Not connected.
 };
 
 char button_to_char_decode[][7] = {
     "L",      "R",     "UP", "X", "LEFT", "RIGHT",
     "SELECT", "START", "Y",  "A", "DOWN", "B",
-    "?" // Should never be used
+    "?" // Should never be used.
 };
 
 char button_to_key[] = {'l',
