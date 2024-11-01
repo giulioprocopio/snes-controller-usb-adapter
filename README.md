@@ -45,7 +45,7 @@ As of current version, the adapter maps the controller buttons as follows:
 | ------------ | ------------ |
 | L            | l            |
 | R            | r            |
-| Joypad Up    | Up arrow     |
+| Joypad up    | Up arrow     |
 | X            | x            |
 | Joypad left  | Left arrow   |
 | Joypad right | Right arrow  |
